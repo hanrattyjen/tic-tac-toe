@@ -83,7 +83,7 @@ describe('Game', function() {
     });
 
     it('allows player 1 to win', function() {
-      expect(game.player1Win()).toEqual('Player 1 win!');
+      expect(game.player1Win()).toEqual('Player 1 wins!');
     });
   });
 
@@ -98,8 +98,42 @@ describe('Game', function() {
       game.player2Turn(2, 1);
     });
 
+    it('allows player 2 to win', function() {
+      expect(game.player2Win()).toEqual('Player 2 wins!');
+    });
+  });
+
+  describe('Player 1 wins', function() {
+    beforeEach(function() {
+      game.player1Turn(0, 0);
+      game.player2Turn(1, 2);
+      game.player1Turn(2, 1);
+      game.player2Turn(1, 0);
+      game.player1Turn(1, 1);
+      game.player2Turn(2, 2);
+      game.player1Turn(0, 1);
+    });
+
     it('allows player 1 to win', function() {
-      expect(game.player2Win()).toEqual('Player 2 win!');
+      expect(game.player1Win()).toEqual('Player 1 wins!');
+    });
+  })
+
+  describe('Draw', function() {
+    beforeEach(function() {
+      game.player1Turn(0, 0);
+      game.player2Turn(1, 1);
+      game.player1Turn(1, 0);
+      game.player2Turn(2, 0);
+      game.player1Turn(0, 2);
+      game.player2Turn(0, 1);
+      game.player1Turn(2, 1);
+      game.player2Turn(1, 2);
+      game.player1Turn(2, 2);
+    });
+
+    it('does not allow anyone to win', function() {
+      expect(game.draw()).toEqual('DRAW');
     });
   });
 
