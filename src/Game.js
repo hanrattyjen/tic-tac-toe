@@ -62,34 +62,11 @@ Game.prototype.player1Win = function() {
   var arrayLength = this.win.length;
   for (var i = 0; i < arrayLength; i++) {
     if ((this.win[i].toString()).includes(this.player1.toString())) {
-      console.log('yes!');
+      return ('Win!');
     }
   }
 }
 
-
-
 Game.prototype.player2Win = function() {
 
 }
-
-//
-// win object
-// player 1 win
-// board = ['X', 'X', 'X'], [4, 5, 6], [7, 8, 9]
-// board = [1, 2, 3], ['X', 'X', 'X'], [7, 8, 9]
-// board = [1, 2, 3], [4, 5, 6], ['X', 'X', 'X']
-// board = ['X', 2, 3], ['X', 5, 6], ['X', 8, 9]
-// board = [1, 'X', 3], [4, 'X', 6], [7, 'X', 9]
-// board = [1, 2, 'X'], [3, 4, 'X'], [7, 8, 'X']
-// board = ['X', 2, 3], [4, 'X', 6], [7, 8, 'X']
-// board = [1, 2, 'X'], [4, 'X', 6], ['X', 8, 9]
-// player 2 win
-// board = ['O', 'O', 'O'], [4, 5, 6], [7, 8, 9]
-// board = [1, 2, 3], ['O', 'O', 'O'], [7, 8, 9]
-// board = [1, 2, 3], [4, 5, 6], ['O', 'O', 'O']
-// board = ['O', 2, 3], ['O', 5, 6], ['O', 8, 9]
-// board = [1, 'O', 3], [4, 'O', 6], [7, 'O', 9]
-// board = [1, 2, 'O'], [3, 4, 'O'], [7, 8, 'O']
-// board = ['O', 2, 3], [4, 'O', 6], [7, 8, 'O']
-// board = [1, 2, 'O'], [4, 'O', 6], ['O', 8, 9]
