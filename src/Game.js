@@ -7,7 +7,7 @@ function Game() {
                   [0,0,0]];
   this.player1 = [];
   this.player2 = [];
-  this.win =   [
+  this.win = [
     [[0,0], [0,1], [0,2]],
     [[1,0], [1,1], [1,2]],
     [[2,0], [2,1], [2,2]],
@@ -61,14 +61,9 @@ Game.prototype.updateBoard = function(row, column, turn) {
 Game.prototype.player1Win = function() {
   var arrayLength = this.win.length;
   for (var i = 0; i < arrayLength; i++) {
-    console.log(this.player1.diff(this.win[i]));
-    console.log(this.win[i].diff(this.player1));
-
-    // console.log(this.win[i] - this.player1);
-    // console.log(this.win[i]);
-      // if (this.win[i] === this.player1) {
-      //   console.log('yes');
-      // }
+    if ((this.win[i].toString()).includes(this.player1.toString())) {
+      console.log('yes!');
+    }
   }
 }
 
