@@ -29,4 +29,29 @@ describe('Game', function() {
     expect(game.player2).toEqual([]);
   })
 
+
+  describe('turns', function() {
+    it('allows a player to take an initial turn', function() {
+      expect(game.player1Turn(0, 0)).toEqual(1);
+    });
+
+    it('allows player 2 to take a turn', function() {
+      expect(game.player2Turn(0, 1)).toEqual(2);
+    })
+
+    it('stores the players turn', function() {
+      game.player1Turn(0, 0);
+      expect(game.player1).toEqual([1]);
+    });
+  });
+
+
+  it('removes that available place from the board', function() {
+    game.updateBoard(0, 0);
+    expect(game.board).toEqual([
+                      ['X', 2, 3],
+                      [4, 5, 6],
+                      [7, 8, 9]]);
+  })
+
 });
