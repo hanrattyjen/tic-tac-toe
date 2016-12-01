@@ -83,7 +83,7 @@ describe('Game', function() {
     });
 
     it('allows player 1 to win', function() {
-      expect(game.player1Win()).toEqual('Player 1 wins!');
+      expect(game.result()).toEqual('Player 1 wins!');
     });
   });
 
@@ -99,7 +99,7 @@ describe('Game', function() {
     });
 
     it('allows player 2 to win', function() {
-      expect(game.player2Win()).toEqual('Player 2 wins!');
+      expect(game.result()).toEqual('Player 2 wins!');
     });
   });
 
@@ -115,7 +115,7 @@ describe('Game', function() {
     });
 
     it('allows player 1 to win', function() {
-      expect(game.player1Win()).toEqual('Player 1 wins!');
+      expect(game.result()).toEqual('Player 1 wins!');
     });
   })
 
@@ -133,7 +133,7 @@ describe('Game', function() {
     });
 
     it('does not allow anyone to win', function() {
-      expect(game.draw()).toEqual('DRAW');
+      expect(game.result()).toEqual('DRAW');
     });
   });
 

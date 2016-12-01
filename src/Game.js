@@ -56,18 +56,12 @@ Game.prototype.updateBoard = function(row, column, turn) {
   return this.board;
 }
 
-Game.prototype.player1Win = function() {
+Game.prototype.result = function() {
   if (_.difference(this.player1, this.win)) {
       return ('Player 1 wins!');
+  } else if (_.difference(this.player2, this.win)) {
+    return ('Player 2 wins!');
+  } else {
+    return ('DRAW');
   }
-}
-
-Game.prototype.player2Win = function() {
-  if (_.difference(this.player2, this.win)) {
-      return ('Player 2 wins!');
-  }
-}
-
-Game.prototype.draw = function() {
-  
 }
