@@ -15,17 +15,27 @@ Game.prototype.getCurrentBoard = function() {
 
 Game.prototype.player1Turn = function(row, column) {
   var value = this.board[row][column];
-  this.player1.push(value);
-  return value;
+  if (value === "X") {
+    alert("This is already taken!");
+  } else {
+    this.player1.push(value);
+    this.updateBoard(row, column);
+    return value;
+  }
 }
 
 Game.prototype.player2Turn = function(row, column) {
   var value = this.board[row][column];
-  this.player2.push(value);
-  return value;
+  if (value === "X") {
+    return ("This is already taken!");
+  } else {
+    this.player2.push(value);
+    this.updateBoard(row, column);
+    return value;
+  }
 }
 
 Game.prototype.updateBoard = function(row, column) {
-  this.board[row][column] === 'X';
+  this.board[row][column] = 'X';
   return this.board;
 }

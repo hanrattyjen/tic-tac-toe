@@ -43,6 +43,11 @@ describe('Game', function() {
       game.player1Turn(0, 0);
       expect(game.player1).toEqual([1]);
     });
+
+    it('does not allow a player to select a spot that has an X', function() {
+      game.player1Turn(0, 0);
+      expect(game.player2Turn(0, 0)).toEqual("This is already taken!");
+    });
   });
 
 
