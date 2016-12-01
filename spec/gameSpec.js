@@ -72,7 +72,7 @@ describe('Game', function() {
     })
   });
 
-  describe('First 3 rounds of turns will give player 1 a win', function() {
+  describe('Player 1 wins', function() {
 
     beforeEach(function() {
       game.player1Turn(0, 0);
@@ -83,7 +83,23 @@ describe('Game', function() {
     });
 
     it('allows player 1 to win', function() {
-      expect(game.player1Win()).toEqual('Win!');
+      expect(game.player1Win()).toEqual('Player 1 win!');
+    });
+  });
+
+  describe('Player 2 wins', function() {
+
+    beforeEach(function() {
+      game.player1Turn(0, 0);
+      game.player2Turn(1, 1);
+      game.player1Turn(1, 0);
+      game.player2Turn(0, 1);
+      game.player1Turn(2, 2);
+      game.player2Turn(2, 1);
+    });
+
+    it('allows player 1 to win', function() {
+      expect(game.player2Win()).toEqual('Player 2 win!');
     });
   });
 

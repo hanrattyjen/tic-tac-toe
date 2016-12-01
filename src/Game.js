@@ -40,9 +40,9 @@ Game.prototype.player1Turn = function(row, column) {
 
 Game.prototype.player2Turn = function(row, column) {
   var value = this.board[row][column];
-  if (this.player1.length === 3) {
-    this.player1.unshift();
-    return player1;
+  if (this.player2.length === 3) {
+    this.player2.unshift();
+    return player2;
   }
   if (value === 'X') {
     return ("This is already taken!");
@@ -59,14 +59,13 @@ Game.prototype.updateBoard = function(row, column, turn) {
 }
 
 Game.prototype.player1Win = function() {
-  var arrayLength = this.win.length;
-  for (var i = 0; i < arrayLength; i++) {
-    if ((this.win[i].toString()).includes(this.player1.toString())) {
-      return ('Win!');
-    }
+  if (_.difference(this.player1, this.win)) {
+      return ('Player 1 win!');
   }
 }
 
 Game.prototype.player2Win = function() {
-
+  if (_.difference(this.player2, this.win)) {
+      return ('Player 2 win!');
+  }
 }
